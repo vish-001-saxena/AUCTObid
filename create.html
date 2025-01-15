@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="createlogo.avif" alt="" width="100%">
+        </div>
+        <div class="right-section">
+            <h2>Create your account</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your email address</label>
+                    <input type="email" id="email" placeholder="Your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm password" required>
+                </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <button class="btn" type="submit">Create new</button>
+            </form>
+            <div class="additional-info">
+                Already have an account? <a href="login.html">Log In</a>
+            </div>
+            <div class="terms">
+                By clicking Sign Up you agree to the <a href="#">Terms & Privacy Policy</a>.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('signup-form');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                // Get form values
+                const fullName = document.getElementById('full-name').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+
+                // Password confirmation validation
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                // Prepare the data to send to the API
+                const data = {
+                    full_name: fullName,
+                    email: email,
+                    password: password
+                };
+
+                try {
+                    // Send the data to the API using fetch
+                    const response = await fetch('http://127.0.0.1:8000/register/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        // If registration is successful, show a success message
+                        alert('Registration successful!');
+                        window.location.href = 'login.html'; // Redirect to login page
+                    } else {
+                        // If there was an error, show the error message
+                        alert(result.message || 'Registration failed. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

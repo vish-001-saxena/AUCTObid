@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Container for login layout */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 70%;
+    max-width: 1000px;
+}
+
+/* Left section (for image/logo) */
+.left-section {
+    flex: 1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+.left-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Right section (for the form) */
+.right-section {
+    flex: 1;
+    padding: 40px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.right-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #7e57c2;
+    box-shadow: 0 0 5px rgba(126, 87, 194, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #7e57c2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5e36b2;
+}
+
+.additional-info {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.additional-info a {
+    color: #7e57c2;
+    text-decoration: none;
+}
+
+.additional-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .left-section,
+    .right-section {
+        flex: none;
+        width: 100%;
+    }
+
+    .right-section {
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="createlogo.avif" alt="" width="100%">
+        </div>
+        <div class="right-section">
+            <h2>Sign In</h2>
+            <form id="login-form" action="index.html">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit">Sign In</button>
+            </form>
+            <div class="additional-info">
+                Don't have an account? <a href="create.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('login-form');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault(); // Prevent form from reloading the page
+
+                // Get form values
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Prepare the login data to send to the API
+                const data = {
+                    email: email,
+                    password: password
+                };
+
+                try {
+                    // Send the login data to the API using fetch
+                    const response = await fetch('http://127.0.0.1:8000/register/login/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        // If login is successful, show a success message or redirect
+                        alert('Login successful!');
+                        // Optionally redirect to the dashboard or home page
+                        window.location.href = 'main.html';
+                    } else {
+                        // If the login failed, display an error message
+                        alert(result.message || 'Login failed. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

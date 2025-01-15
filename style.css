@@ -1,0 +1,375 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  body.fade-out {
+    opacity: 0;
+  }
+
+body{
+    background-image: linear-gradient(to bottom, #004ff9 , #000000);
+    overflow-x: hidden;    
+}
+
+body a{
+    text-decoration: none;
+    transition: color 0.3s ease
+}
+
+.header{
+    height: 650px;
+    background-image: url(auction.jpg);
+    background-size: cover;
+}
+
+.infor{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 70vh;    
+}
+
+.infor a{
+    transition: color 0.3s ease;
+}
+
+.bid a{
+    color: gray;
+    transition: color 0.3s ease
+    
+}
+
+.dib a{
+    color: rgb(37, 36, 36);
+    transition: color 0.3s ease;
+}
+
+.dib a:hover{
+    transition: color 0.3s ease;
+    transform: scale(1.05);
+}
+
+.bid a:hover{
+    color:#007BFF;
+    transform: scale(1.05);
+}
+
+.dib{
+    margin-left: 48px;
+    font-size: 35px;
+    display: flex;
+    gap: 1.5vh;
+   
+}
+
+.bid{
+    color: #a28089;
+    width: 1000px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+}
+
+.container{
+    text-align: center;
+    position: absolute;
+    top:180px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.container h1{
+    font-size: 60px;
+    color:  #6082B6;
+}
+
+.container p{
+    font-size: 20px;
+    color:  #6082B6;
+}
+
+#explore{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    left: 150px;
+    font-size: 20px;
+    color: white;
+    
+    padding-top: 15px;
+    border-radius: 2vh;
+    border: 1px solid black;
+    background-color: #007BFF;
+}
+
+.container button{
+    width: 200px;
+    height: 60px;
+    border-radius: 2vh;
+    border: 1px solid black;
+    position: relative;
+    left: 150px;
+    background-color: #007BFF;
+    cursor: pointer;
+}
+
+.container button a{
+    font-size: 15px;
+    color: white;  
+    transition: color 0.3s ease; 
+}
+
+.ourc{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ourc{
+    color: white;
+}
+
+
+.container a:hover{
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.old:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.antique:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.vintage:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+#categories h5{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.56rem;
+}
+
+#categories p{
+    height: 100px;
+    width: 350px;
+    font-size: 1.25em;
+    position: relative;
+    left: 30px;
+    margin-top: 40px;
+}
+
+#categories a{
+   position: relative;
+   left: 140px;
+    height: 50px;
+    width: 120px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0D6EFD;
+    text-align: center;
+    border-radius: 1.5vh;
+    border: 0.5px solid black;
+    margin-bottom: 15px;
+}
+
+#categories a:hover{
+    transform: scale(1.05);
+}
+
+.old{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 240px;
+    width: 400px;
+    border: 1px solid grey;
+    border-radius: 2vh;
+    background-color: #EFE3C2;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.antique{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 240px;
+    width: 400px;
+    border: 1px solid grey;
+    border-radius: 2vh;
+    background-color: #EFE3C2;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vintage{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 240px;
+    width: 400px;
+    border: 1px solid grey;
+    border-radius: 2vh;
+    background-color: #EFE3C2;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#contact{
+    height: 450px;
+    margin-top: 80px;
+    text-align: center;
+    
+}
+
+#contact h1{
+    padding-top: 30px;
+    text-align: center;
+    font-size: 39px;
+    color: white;
+}
+
+.first{
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 5vh;
+    height: 80px;
+    border: none;
+}
+
+.name input{
+    height: 40px;
+    width: 500px;
+    margin-left: 140px;
+    border: none;
+    border-radius: 0.7vh;
+}
+
+.email input{
+    height: 40px;
+    width: 500px;
+    margin-right: 140px;
+    border: none;
+    border-radius: 0.7vh;
+}
+
+.message textarea{
+    height: 110px;
+    margin-left: 140px;
+    margin-right: 174px;
+    width: 1035px;
+    border: none;
+    border-radius: 0.7vh;
+    font-size: 1.1rem;
+}
+
+
+
+.submit button{
+    margin-top: 30px;
+    background-color: #0D6EFD;
+    color: #FFFFFF;
+    height: 40px;
+    width: 130px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 0.5px solid gray;
+    border-radius: 1vh;
+}
+
+.submit button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#help{
+    color: rgba(245, 245, 245, 0.89);
+    height: 270px;
+    margin-top: 45px;
+    text-align: center;
+}
+
+#help a{
+    color: rgba(245, 245, 245, 0.89);
+}
+
+#help h1{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+#help p{
+    font-size: 18px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+#help button{
+    margin-top: 60px;
+    background-color: #0D6EFD;
+    color: #FFFFFF;
+    height: 40px;
+    width: 130px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 0.5px solid gray;
+    border-radius: 1vh;
+}
+
+#help button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.footer{
+    height: 56px;
+    background-color: black;
+    color: #FFFFFF;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.response {
+    display: none;
+    color: white;
+    background-color: #4CAF50; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    margin-top: 5px;
+    font-size: 14px;
+}
